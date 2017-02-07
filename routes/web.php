@@ -26,3 +26,13 @@ Route::post('/save/{id}', [
     'as' => 'modifier',
     'uses' => 'UserController@save'
 ]);
+
+Route::get('/dashboard', [
+    'as' => 'dashboard',
+    'uses' => 'DashbordController@index'
+]);
+
+Route::get('/dashboard/users', [
+    'as' => 'dashboard',
+    'uses' => 'DashbordController@users'
+]);
