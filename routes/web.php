@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',  [
+    'as'=>'accueil',
+    'uses'=>'UserController@index'
+
+]);
+
+Route::get('editer/{id}', [
+    'as' => 'editer',
+    'uses' => 'UserController@edit'
+]);
+
+Route::post('/save/{id}', [
+    'as' => 'modifier',
+    'uses' => 'UserController@save'
+]);
