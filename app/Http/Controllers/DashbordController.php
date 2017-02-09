@@ -9,15 +9,14 @@ class DashbordController extends Controller
 {
 
     public function index(){
-        $nb_users = User::count();
-        return view ('dashboard',compact('nb_users'));
+
+        return view ('dashboard');
     }
     public function users(){
 
-        $nb_users = DB::table('users')
-            ->select(DB::raw('count(*) as users_number'))
-            ->get();
-
-        dd($nb_users);
+        $nb_users = User::count();
+        return response()
+            ->json(['data' => $nb_users]);
+        //return ($nb_users);
     }
 }
